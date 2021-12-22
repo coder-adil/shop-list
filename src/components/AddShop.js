@@ -19,7 +19,9 @@ const AddShop = ({ addShopModal, handleAddShopModal }) => {
   };
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Shop name is required'),
+    name: Yup.string()
+      .required('Shop name is required')
+      .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed for shop name'),
     area: Yup.string().required('Shop area is required'),
     category: Yup.string().required('Shop category is required'),
     startDate: Yup.date().required('Shop start date is required'),
